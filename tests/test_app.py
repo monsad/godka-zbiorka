@@ -53,3 +53,10 @@ def test_poprawka_zapisana_i_nowe_zdanie(at):
     assert not at.exception and not at.error
     [w] = wiersze("poprawki")
     assert w["pl"] == pl_przed and w["poprawka"] == "Moja poprawka po ślōnsku."
+
+
+def test_strona_mowi_o_sprawdzaniu_przed_publikacja(at):
+    opis = " ".join(m.value for m in at.markdown)
+    assert "najpierw sprawdzamy" in opis
+    assert "mosad2024/szl-godka)" in opis            # link do zbioru publicznego
+    assert "szl-godka-zbiorka" not in opis          # prywatnej skrzynki nie pokazujemy

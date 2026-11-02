@@ -23,8 +23,8 @@ configs:
 
 Śląska gŏdka zbierana od ludzi przez stronę
 [Zbiórka gŏdki](https://github.com/monsad/godka-zbiorka) — do douczania
-modelu Bielik i innych modeli dla języka śląskiego. Zbiór rośnie na bieżąco
-(nowe zgłoszenia co kilka minut).
+modelu Bielik i innych modeli dla języka śląskiego. Każde zgłoszenie jest
+sprawdzane ręcznie przed publikacją; zbiór rośnie po każdym przeglądzie.
 
 ## Zawartość
 
@@ -49,5 +49,5 @@ dowolna (Ślabikŏrz, Steuer, „po polsku”).
 
 ## Ograniczenia
 
-Zbiór nie jest moderowany na bieżąco. Może zawierać błędy, nagrania słabej jakości
-albo pojedyncze śmieci. Zgłoszenia z danymi osobowymi są usuwane po wykryciu.
+Zgłoszenia są przeglądane ręcznie, ale przegląd nie poprawia treści — mogą zostać
+literówki albo nagrania słabszej jakości. Zgłoszenia z danymi osobowymi są usuwane po wykryciu.

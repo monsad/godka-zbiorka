@@ -1,7 +1,8 @@
 """Zbiórka gŏdki: strona, przez którą ludzie przysyłają śląskie teksty, nagrania i poprawki tłumaczeń.
 
 Zgłoszenia trafiają do lokalnego folderu `dane/`. Gdy jest ustawiony HF_TOKEN (sekret w Streamlit
-albo zmienna środowiskowa), CommitScheduler co 2 minuty wysyła folder do publicznego zbioru.
+albo zmienna środowiskowa), CommitScheduler co 2 minuty wysyła folder do prywatnej skrzynki;
+zatwierdzone zgłoszenia publikuje `przeglad.py` w zbiorze publicznym.
 """
 from __future__ import annotations
 
@@ -26,7 +27,8 @@ def _sekret(nazwa: str, domyslna: str | None = None) -> str | None:
     return os.environ.get(nazwa, domyslna)
 
 
-DATASET_REPO = _sekret("DATASET_REPO", "mosad2024/szl-godka-zbiorka")
+DATASET_REPO = _sekret("DATASET_REPO", "mosad2024/szl-godka-zbiorka")   # prywatna skrzynka
+PUBLICZNY = "mosad2024/szl-godka"
 
 
 @st.cache_resource
@@ -83,8 +85,8 @@ Pomōż nauczyć model językowy **Bielik** gŏdać po ślōnsku: napisz coś po
 przeczytaj zdanie na głos albo popraw tłumaczenie Bielika.
 
 - Nie zbieramy imion, maili ani adresów — tylko to, co wpiszesz lub nagrasz.
-- Wszystko trafia do **publicznego** zbioru
-  [{DATASET_REPO}](https://huggingface.co/datasets/{DATASET_REPO}) na licencji **CC0**
+- Każde zgłoszenie najpierw sprawdzamy. Po akceptacji publikujemy je w otwartym zbiorze
+  [{PUBLICZNY}](https://huggingface.co/datasets/{PUBLICZNY}) na licencji **CC0**
   (domena publiczna) — każdy może z tego korzystać, także do trenowania modeli.
 - Nie wpisuj danych osobowych (swoich ani cudzych).
 """)

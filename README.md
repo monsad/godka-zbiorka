@@ -1,8 +1,19 @@
 # Zbiórka gŏdki
 
 Strona do zbierania śląskiej gŏdki dla modelu Bielik: teksty, nagrania zdań
-i poprawki tłumaczeń. Zgłoszenia trafiają do publicznego zbioru
-[mosad2024/szl-godka-zbiorka](https://huggingface.co/datasets/mosad2024/szl-godka-zbiorka) (CC0).
+i poprawki tłumaczeń. Zgłoszenia trafiają najpierw do prywatnej skrzynki
+`mosad2024/szl-godka-zbiorka`; po sprawdzeniu publikujemy je w otwartym zbiorze
+[mosad2024/szl-godka](https://huggingface.co/datasets/mosad2024/szl-godka) (CC0).
+
+## Przegląd zgłoszeń
+
+```bash
+hf auth login                    # konto z zapisem do obu zbiorów
+python przeglad.py               # t = tak, n = nie, p = pomiń, o = odtwórz nagranie, q = koniec
+```
+
+Zatwierdzone trafiają do zbioru publicznego, decyzje do `decyzje/` w skrzynce
+(nic nie jest oceniane dwa razy).
 
 Działa na darmowym Streamlit Community Cloud; dane wysyła co 2 minuty na Hugging Face.
 
@@ -30,4 +41,5 @@ python -m pytest tests           # testy zapisu, puli zdań i całej strony
 - `zdania_do_czytania.jsonl` — 400 zdań ze ślōnskij Wikipedyje (CC BY-SA)
 - `tlumaczenia.jsonl` — 123 polskie zdania z tłumaczeniem Bielika do poprawy
 - `przygotuj_pule.py` — odświeża obie pule (wymaga repo bielik-tokenizer i modelu MLX)
-- `dataset_card.md` — opis zbioru na HF
+- `przeglad.py` — przegląd zgłoszeń: skrzynka → zbiór publiczny
+- `dataset_card.md` — opis zbioru publicznego, `dataset_card_skrzynka.md` — opis prywatnej skrzynki
